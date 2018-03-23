@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 2a1dcd19356f72e429795bb3d6308e74
+timeCreated: 1479462208
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GoldenDeathMachineBullet_0
+    21300002: GoldenDeathMachineBullet_1
+    21300004: GoldenDeathMachineBullet_3
+    21300006: GoldenDeathMachineBullet_4
+    21300008: GoldenDeathMachineBullet_7
+    21300010: GoldenDeathMachineBullet_9
+    21300012: GoldenDeathMachineBullet_10
+    21300014: GoldenDeathMachineBullet_11
+    21300016: GoldenDeathMachineBullet_12
+    21300018: GoldenDeathMachineBullet_13
+    21300020: GoldenDeathMachineBullet_14
+    21300022: GoldenDeathMachineBullet_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 276
+        width: 167
+        height: 94
+      alignment: 9
+      pivot: {x: 0.8793208, y: 0.48678622}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 275
+        width: 170
+        height: 93
+      alignment: 9
+      pivot: {x: 0.89454615, y: 0.48664412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_3
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 264
+        width: 169
+        height: 99
+      alignment: 9
+      pivot: {x: 0.8821816, y: 0.52509284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_4
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 265
+        width: 168
+        height: 98
+      alignment: 9
+      pivot: {x: 0.9140298, y: 0.46197698}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 137
+        width: 169
+        height: 96
+      alignment: 9
+      pivot: {x: 0.8895311, y: 0.47412315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_9
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 149
+        width: 166
+        height: 94
+      alignment: 9
+      pivot: {x: 0.9040533, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_10
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 142
+        width: 190
+        height: 102
+      alignment: 9
+      pivot: {x: 0.83340293, y: 0.55545056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_11
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 138
+        width: 165
+        height: 103
+      alignment: 9
+      pivot: {x: 0.8914462, y: 0.43970454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 13
+        width: 180
+        height: 90
+      alignment: 9
+      pivot: {x: 0.90022886, y: 0.4861991}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_13
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 16
+        width: 178
+        height: 97
+      alignment: 9
+      pivot: {x: 0.90472585, y: 0.44878003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_14
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 16
+        width: 164
+        height: 102
+      alignment: 9
+      pivot: {x: 0.89383304, y: 0.463468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GoldenDeathMachineBullet_17
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 9
+        width: 154
+        height: 99
+      alignment: 9
+      pivot: {x: 0.9032759, y: 0.46236116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
