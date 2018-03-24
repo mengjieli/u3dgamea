@@ -22,8 +22,13 @@ public class ShootItem : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogWarning(collision.tag + "," + collision.gameObject.tag + "," + collision.gameObject.layer);
         Destroy(this.gameObject);
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            DestructiveItem ditem = collision.gameObject.GetComponent<DestructiveItem>();
+            ditem.goDie();
+        }
 
         Instantiate(boomAnimation, gameObject.transform.position, transform.localRotation);
     }
