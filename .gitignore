@@ -1,7 +1,17 @@
 .idea
 .idea/
 .idea/workspace.xml
+GameA/Assembly-CSharp.csproj
+GameA/GameA.sln
+GameA/GameA.userprefs
 GameA/Library/
 GameA/ProjectSettings/
 GameA/Temp/
 GameA/UnityPackageManager/
+GameB/Assembly-CSharp.csproj
+GameB/GameB.sln
+GameB/GameB.userprefs
+GameB/Library/
+GameB/ProjectSettings/
+GameB/Temp/
+GameB/UnityPackageManager/
