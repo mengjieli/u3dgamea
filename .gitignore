@@ -9,6 +9,7 @@ GameA/ProjectSettings/
 GameA/Temp/
 GameA/UnityPackageManager/
 GameB/Assembly-CSharp.csproj
+GameB/GameB.app
 GameB/GameB.sln
 GameB/GameB.userprefs
 GameB/Library/

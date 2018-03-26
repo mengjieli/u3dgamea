@@ -60,7 +60,7 @@ public class GameBody : MonoBehaviour {
 		ceils.Add (ceil);
 	}
 
-	public bool Move(float x,float y) {
+	public int Move(float x,float y) {
 		return WorldManager.Instance.MoveGameBody (this,x,y);
 	}
 }

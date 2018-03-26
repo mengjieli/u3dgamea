@@ -16,9 +16,10 @@ public class ControllerAbility : Ability {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.D)) {
+		if (Input.GetKeyDown (KeyCode.D)) 
+		{
 			PhysicAbility sp = gameObject.GetComponent<PhysicAbility> ();
-			sp.vx = 1f;
+			sp.vx = 0.03f;
 		}
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -28,7 +29,7 @@ public class ControllerAbility : Ability {
         if (Input.GetKeyDown(KeyCode.W))
         {
             PhysicAbility sp = gameObject.GetComponent<PhysicAbility>();
-            sp.vy = 0.01f;
+            sp.vy = 0.1f;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
