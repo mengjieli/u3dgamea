@@ -11,30 +11,32 @@ public class WorldManager : MonoBehaviour {
 		Instance = this;
 	}
 
-	public Ceil[,] coords = new Ceil[100,100];
+    public Dictionary<string, Ceil> coords = new Dictionary<string, Ceil>();
 
 	public void AddCeilToWorld(int coordx,int coordy,Ceil item) {
-		coords [coordy,coordx] = item;
+        coords.Add(coordx + "," + coordy, item);
 	}
 
 	public void AddGameBodyToWorld(GameBody body) {
 		ArrayList ceils = body.ceils;
 		foreach (Ceil ceil in ceils) {
-			coords [ceil.coordy, ceil.coordx] = ceil;
+            coords.Add(ceil.coordx + "," + ceil.coordy, ceil);
 		}
 	}
 
 	public void DeleteGameBodyCoord(GameBody body) {
 		ArrayList ceils = body.ceils;
-		foreach (Ceil ceil in ceils) {
-			coords [ceil.coordy, ceil.coordx] = null;
+		foreach (Ceil ceil in ceils)
+        {
+            coords.Remove(ceil.coordx + "," + ceil.coordy);
 		}
 	}
 
 	public void ChangeGameBodyCoord(GameBody body) {
 		ArrayList ceils = body.ceils;
-		foreach (Ceil ceil in ceils) {
-			coords [ceil.coordy, ceil.coordx] = ceil;
+		foreach (Ceil ceil in ceils)
+        {
+            coords.Add(ceil.coordx + "," + ceil.coordy, ceil);
 		}
 	}
 
@@ -42,19 +44,11 @@ public class WorldManager : MonoBehaviour {
 		ArrayList ceils = body.ceils;
 		float px = (body.gameObject.transform.position.x + x)/0.16f;
 		float py = (body.gameObject.transform.position.y + y)/0.16f;
-		int cx;
-		int cy;
-		if (px > 0)
-			cx = (int)Mathf.Ceil (px);
-		else
-			cx = (int)Mathf.Floor (px);
-		if (py > 0)
-			cy = (int)Mathf.Ceil (py);
-		else
-			cy = (int)Mathf.Floor (py);
+		int cx = Mathf.RoundToInt(px);
+        int cy = Mathf.RoundToInt(py);
 		foreach (Ceil ceil in ceils) {
-			if (coords [cy + ceil.ceilx, cx + ceil.ceily] != null) {
-				if (coords [cy + ceil.ceilx, cx + ceil.ceily].body != body) {
+            if(coords.ContainsKey((cx + ceil.ceilx) + "," + (cy + ceil.ceily))) { 
+				if (coords[(cx + ceil.ceilx) + "," + (cy + ceil.ceily)].body != body) {
 					return false;
 				}
 			}
@@ -69,11 +63,11 @@ public class WorldManager : MonoBehaviour {
 	}
 
 	public bool HasAt(int coordx,int coordy) {
-		return coords [coordy,coordx] == null ? false : true;
+		return coords.ContainsKey(coordx + "," + coordy);
 	}
 
 	public Ceil GetAt(int coordx, int coordy) {
-		return coords [coordy,coordx];
+		return coords [coordx + "," + coordy];
 	}
 
 	// Use this for initialization

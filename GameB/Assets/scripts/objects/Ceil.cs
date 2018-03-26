@@ -47,7 +47,9 @@ public class Ceil : MonoBehaviour {
 
 	private void SetAvatar(Sprite sprite) {
 		gameObject.GetComponent<SpriteRenderer> ().sprite = sprite;
-	}
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+
+    }
 
 	public void ChangeCeilPosition(int x,int y)
 	{

@@ -15,11 +15,12 @@ public class BufferManager : MonoBehaviour {
 		Instance = this;
 	}
 
-	public GameBody CreateGameBody()
+	public GameBody CreateGameBody(int coordx,int coordy)
 	{
 		GameObject obj = new GameObject ();
 		GameBody body = obj.AddComponent<GameBody> ();
-		body.AddCeil (CreateCeil(),0,0);
+        body.ChangeCoord(coordx, coordy);
+        body.AddCeil (CreateCeil(),0,0);
 		WorldManager.Instance.AddGameBodyToWorld(body);
 		return body;
 	}

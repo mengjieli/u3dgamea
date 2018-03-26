@@ -17,11 +17,23 @@ public class ControllerAbility : Ability {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.D)) {
-			if (gameObject.GetComponent<PhysicAbility> () == null) {
-			//	gameObject.AddComponent<SimplePhysic> ();
-			}
 			PhysicAbility sp = gameObject.GetComponent<PhysicAbility> ();
-			sp.vx = 0.01f;
+			sp.vx = 1f;
 		}
-	}
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PhysicAbility sp = gameObject.GetComponent<PhysicAbility>();
+            sp.vx = -0.03f;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            PhysicAbility sp = gameObject.GetComponent<PhysicAbility>();
+            sp.vy = 0.01f;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PhysicAbility sp = gameObject.GetComponent<PhysicAbility>();
+            sp.vy = -0.01f;
+        }
+    }
 }

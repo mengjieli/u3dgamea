@@ -10,6 +10,7 @@ public class GameBody : MonoBehaviour {
 
 	public int coordy;
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -27,6 +28,27 @@ public class GameBody : MonoBehaviour {
 		gameObject.transform.position = new Vector3 (coordx * 0.16f,coordy * 0.16f);
 		WorldManager.Instance.ChangeGameBodyCoord (this);
 	}
+
+    private int storeCoordx;
+    private int storeCoordy;
+    private float storePositionx;
+    private float storePositiony;
+    //记录位置
+    public void StorePosition()
+    {
+        storeCoordx = coordx;
+        storeCoordy = coordy;
+        storePositionx = gameObject.transform.position.x;
+        storePositiony = gameObject.transform.position.y;
+    }
+
+    //还原位置
+    public void RestorePosition()
+    {
+        storeCoordx = coordx;
+        storeCoordy = coordy;
+        gameObject.transform.position = new Vector3(storePositionx, storePositiony);
+    }
 
 	/**
 	 * 添加细胞
