@@ -39,12 +39,14 @@ public class Role : MonoBehaviour {
             if (s.StateName == value && s.Accept(param)) {
                 if (state != null)
                 {
+                    Debug.Log("quit " + state.StateName);
                     state.Active = false;
                     state.Quit();
                 }
                 state = s;
                 state.Active = true;
                 state.StartState(param);
+                Debug.Log("enter " + state.StateName);
                 break;
             }
         }
