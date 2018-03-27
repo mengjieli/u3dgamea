@@ -10,10 +10,17 @@ public class CameraManager : MonoBehaviour {
     public Camera mainCamera;
     //镜头的 transform 属性
     public Transform cameraTransform;
-    //可移动范围，直接获取前景层的移动范围
-    private Rect moveRange;
+
+
     //镜头范围，根据屏幕可视范围和移动范围计算得到
-    private Rect cameraRange;
+    [HideInInspector]
+    public Rect cameraRange;
+    //镜头在移动范围内 x 的移动比例
+    [HideInInspector]
+    public float cameraXPercent = 0;
+    //镜头在移动范围内 y 的移动比例
+    [HideInInspector]
+    public float cameraYPercent = 0;
 
     //测试用
     public bool test = true;
@@ -23,16 +30,8 @@ public class CameraManager : MonoBehaviour {
     private void Awake()
     {
         Instance = this;
-        Rect frontMoveRange = LayerManager.Instance.frontLayer.GetComponent<GameLayer>().moveRange;
-        moveRange = new Rect(frontMoveRange.x, frontMoveRange.y, frontMoveRange.width, frontMoveRange.height);
-        //计算镜头实际可移动范围
-        Vector3 v = new Vector3();
-        v = mainCamera.ViewportToWorldPoint(v);
-        Debug.Log(v.x + "," + v.y);
-        cameraRange.x = moveRange.x + Mathf.Abs(v.x);
-        cameraRange.width = moveRange.width - 2 * Mathf.Abs(v.x);
-        cameraRange.y = moveRange.y + Mathf.Abs(v.y);
-        cameraRange.height = moveRange.height - 2 * Mathf.Abs(v.y);
+        Rect frontCameraRange = LayerManager.Instance.frontLayer.GetComponent<GameLayer>().cameraRange;
+        cameraRange = new Rect(frontCameraRange.x, frontCameraRange.y, frontCameraRange.width, frontCameraRange.height);
     }
 
     // Use this for initialization
@@ -80,7 +79,29 @@ public class CameraManager : MonoBehaviour {
                 moveUp = 1;
             }
         }
-        Debug.Log(cameraTransform.position.x);
-	}
+
+        //控制镜头移动范围
+        if (cameraTransform.position.x > cameraRange.x + cameraRange.width)
+        {
+            cameraTransform.position = new Vector3(cameraRange.x + cameraRange.width, cameraTransform.position.y, cameraTransform.position.z);
+        }
+        if(cameraTransform.position.x < cameraRange.x)
+        {
+            cameraTransform.position = new Vector3(cameraRange.x, cameraTransform.position.y, cameraTransform.position.z);
+        }
+        if (cameraTransform.position.y > cameraRange.y + cameraRange.height)
+        {
+            cameraTransform.position = new Vector3(cameraTransform.position.x, cameraRange.y + cameraRange.height, cameraTransform.position.z);
+        }
+        if (cameraTransform.position.y < cameraRange.y)
+        {
+            cameraTransform.position = new Vector3(cameraTransform.position.x, cameraRange.y, cameraTransform.position.z);
+        }
+
+        //计算镜头移动比例
+        cameraXPercent = (cameraTransform.position.x - cameraRange.x) / cameraRange.width;
+        cameraYPercent = (cameraTransform.position.y - cameraRange.y) / cameraRange.height;
+
+    }
 
 }

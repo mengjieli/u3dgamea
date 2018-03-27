@@ -6,6 +6,9 @@ public class LayerManager : MonoBehaviour {
 
     public static LayerManager Instance;
 
+    //镜头
+    public Camera mainCamera;
+
     //背景层
     public GameObject backLayer;
     //前景层
@@ -17,9 +20,16 @@ public class LayerManager : MonoBehaviour {
     //子弹层，特效层
     public GameObject bulletLayer;
 
+    //镜头大小
+    public Vector3 cameraSize;
+
     private void Awake()
     {
         Instance = this;
+
+        cameraSize = new Vector3();
+        cameraSize = mainCamera.ViewportToWorldPoint(cameraSize);
+
         Rect rect = frontLayer.GetComponent<GameLayer>().moveRange;
         monsterLayer.GetComponent<GameLayer>().moveRange = rect;
         playerLayer.GetComponent<GameLayer>().moveRange = rect;
@@ -33,8 +43,6 @@ public class LayerManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 cameraPosition = CameraManager.Instance.cameraTransform.position;
-        //背景随着镜头移动
-        backLayer.transform.position = new Vector3(cameraPosition.x, cameraPosition.y, backLayer.transform.position.z);
-	}
+
+    }
 }

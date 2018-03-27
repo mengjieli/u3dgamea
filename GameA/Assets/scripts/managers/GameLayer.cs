@@ -6,14 +6,37 @@ public class GameLayer : MonoBehaviour {
 
     //可移动范围
     public Rect moveRange;
+    //镜头范围，根据屏幕可视范围和移动范围计算得到
+    [HideInInspector]
+    public Rect cameraRange;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        Vector3 cameraSize = LayerManager.Instance.cameraSize;
+        //计算镜头实际可移动范围
+        cameraRange.x = moveRange.x + Mathf.Abs(cameraSize.x);
+        cameraRange.width = moveRange.width - 2 * Mathf.Abs(cameraSize.x);
+        cameraRange.y = moveRange.y + Mathf.Abs(cameraSize.y);
+        cameraRange.height = moveRange.height - 2 * Mathf.Abs(cameraSize.y);
+    }
+
+        // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Rect cameraRange = CameraManager.Instance.cameraRange;
+        if(cameraRange.Equals(this.cameraRange) == false)
+        {
+            float xPercent = CameraManager.Instance.cameraXPercent;
+            float yPercent = CameraManager.Instance.cameraYPercent;
+            float x = this.cameraRange.x + this.cameraRange.width * xPercent;
+            float y = this.cameraRange.y + this.cameraRange.height * yPercent;
+            float cameraX = cameraRange.x + cameraRange.width * xPercent;
+            float cameraY = cameraRange.y + cameraRange.height * yPercent;
+            gameObject.transform.position = new Vector3(cameraX - x, cameraY - y, gameObject.transform.position.z);
+        }
+    }
 }
