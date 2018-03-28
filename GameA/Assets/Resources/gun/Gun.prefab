@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4555434088943140}
   - component: {fileID: 212632830201338980}
-  - component: {fileID: 114536446972718954}
+  - component: {fileID: 114248754870115328}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932869423172742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.2, z: 0}
+  m_LocalPosition: {x: 2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4555434088943140}
@@ -63,14 +63,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1070474613078360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -0.071, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 4519910209926224}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114536446972718954
+--- !u!114 &114248754870115328
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -78,21 +78,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1070474613078360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d511a3fee465ab4eae0a79390a21e75, type: 3}
+  m_Script: {fileID: 11500000, guid: b14acac973b59754e8ea77b941520c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPrefab: {fileID: 1221680994020482, guid: b83a498483718254699ff00d527d521c,
-    type: 2}
-  shootTrans: {fileID: 4519910209926224}
-  boomAnimation: {fileID: 1359428512495448, guid: 4d6679d623d45ba46b631b1c5d403b91,
-    type: 2}
-  timeGap: 100
-  speed: 0.08
-  count: 3
-  itemTimeGap: 0
-  startRotation: -10
-  gapRotation: 10
-  randomRotation: 5
+  shootPointTransform: {fileID: 4519910209926224}
 --- !u!212 &212632830201338980
 SpriteRenderer:
   m_ObjectHideFlags: 1

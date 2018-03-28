@@ -19,7 +19,7 @@ public class StandState : RoleState {
         this.param = param;
         Play();
         r2d.velocity = new Vector2(0, 0);
-        rc.doubleJump = false;
+        vo.doubleJump = false;
     }
 
 

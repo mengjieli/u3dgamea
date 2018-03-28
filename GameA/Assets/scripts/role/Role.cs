@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class Role : MonoBehaviour {
 
+    //角色全部可用的状态
     private ArrayList states = new ArrayList();
+
+    //动画信息
     private Animator animator;
+
+    //武器偏移点
+    public Transform gunTransform;
+    
     //角色当前状态
+    [HideInInspector]
     public RoleState state = null;
 
-    private void Awake()
+    //角色信息
+    [HideInInspector]
+    public RoleVO vo;
+
+    //角色当前身上的枪
+    private GameObject gun;
+
+    //初始化角色相关内容
+    public void Init()
     {
+        //获取角色相关的动画内容
         animator = GetComponent<Animator>();
         for (int i = 0; i < animator.runtimeAnimatorController.animationClips.Length; i++)
         {
-            switch (animator.runtimeAnimatorController.animationClips[i].name) {
+            switch (animator.runtimeAnimatorController.animationClips[i].name)
+            {
                 case RoleState.STAND:
-                    states.Add(gameObject.AddComponent< StandState>());
+                    states.Add(gameObject.AddComponent<StandState>());
                     break;
                 case RoleState.RUN:
                     states.Add(gameObject.AddComponent<RunState>());
@@ -29,7 +47,31 @@ public class Role : MonoBehaviour {
                     break;
             }
         }
+
+        //初始化角色身上的武器(枪)
+        ChangeGun();
+
+        //跳转第一个状态
         ChangeState(RoleState.STAND);
+    }
+
+    //切换枪
+    public void ChangeGun()
+    {
+        //删除旧的枪
+        if(gun != null)
+        {
+            Destroy(gun);
+        }
+        //加入新的枪械
+        if(vo.gun != null)
+        {
+            gun = Instantiate(ResourceManager.Instance.GetResource(vo.gun.config.prefabURL)) as GameObject;
+            gun.GetComponent<Gun>().vo = vo.gun;
+            gun.transform.parent = gunTransform;
+            //设置枪的位置
+            gun.transform.position = new Vector3(gunTransform.position.x,gunTransform.position.y,gunTransform.position.z);
+        }
     }
 
     //转换状态
@@ -39,14 +81,14 @@ public class Role : MonoBehaviour {
             if (s.StateName == value && s.Accept(param)) {
                 if (state != null)
                 {
-                    Debug.Log("quit " + state.StateName);
+                    //Debug.Log("quit " + state.StateName);
                     state.Active = false;
                     state.Quit();
                 }
                 state = s;
                 state.Active = true;
                 state.StartState(param);
-                Debug.Log("enter " + state.StateName);
+                //Debug.Log("enter " + state.StateName);
                 break;
             }
         }
@@ -65,14 +107,12 @@ public class Role : MonoBehaviour {
             gameObject.transform.localScale = new Vector3(flipx, gameObject.transform.localScale.y);
         }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(vo.changeGun)
+        {
+            ChangeGun();
+        }
 	}
 }

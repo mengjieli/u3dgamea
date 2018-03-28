@@ -6,7 +6,6 @@ public class RoleController : MonoBehaviour {
 
     Role role;
     float lastJump = 0;
-    public bool doubleJump = false;
 
     private void Awake()
     {
@@ -41,6 +40,10 @@ public class RoleController : MonoBehaviour {
         if (Input.GetAxis("Fire1") != 0)
         {
             role.state.Fire();
+        }
+        else
+        {
+            role.state.StopFire();
         }
     }
 }

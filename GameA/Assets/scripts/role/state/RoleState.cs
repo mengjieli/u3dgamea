@@ -38,6 +38,8 @@ public abstract class RoleState : MonoBehaviour
 
     protected RoleController rc;
 
+    protected RoleVO vo;
+
     protected Dictionary<string, StateParam> param;
 
     private void Awake()
@@ -45,6 +47,7 @@ public abstract class RoleState : MonoBehaviour
         role = GetComponent<Role>();
         r2d = GetComponent<Rigidbody2D>();
         rc = GetComponent<RoleController>();
+        vo = role.vo;
     }
 
     protected void Play()
@@ -52,6 +55,7 @@ public abstract class RoleState : MonoBehaviour
         DirectionParam dir = GetParam(DirectionParam.NAME) as DirectionParam;
         if (dir != null)
         {
+            vo.direction = dir.direction;
             role.Play(StateName, dir.flipx);
         }
         else
@@ -71,7 +75,18 @@ public abstract class RoleState : MonoBehaviour
     {
         if(StateName == RoleState.STAND || StateName == RoleState.RUN || StateName == RoleState.JUMP_UP || StateName == RoleState.JUMP_DOWN)
         {
-            //TODO
+            if(vo.gun != null)
+            {
+                vo.gun.Fire();
+            }
+        }
+    }
+
+    public void StopFire()
+    {
+        if (vo.gun != null)
+        {
+            vo.gun.StopFire();
         }
     }
 

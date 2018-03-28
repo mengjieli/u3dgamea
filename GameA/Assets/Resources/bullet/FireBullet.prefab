@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 95621789502258384}
   - component: {fileID: 114767124837828974}
   - component: {fileID: 61440460495905246}
-  - component: {fileID: 114258404207769110}
   - component: {fileID: 50210140387785116}
   m_Layer: 9
   m_Name: FireBullet
@@ -107,19 +106,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114258404207769110
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1221680994020482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2c7436845905d04cac3718dbaf75afd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vx: 0
-  vy: 0
 --- !u!114 &114767124837828974
 MonoBehaviour:
   m_ObjectHideFlags: 1

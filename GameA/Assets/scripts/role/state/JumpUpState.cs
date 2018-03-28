@@ -15,9 +15,9 @@ public class JumpUpState : RoleState {
         if (role.state.StateName == RoleState.RUN) return true;
         if (role.state.StateName == RoleState.JUMP_UP || role.state.StateName == RoleState.JUMP_DOWN)
         {
-            if (rc.doubleJump == false)
+            if (vo.doubleJump == false)
             {
-                rc.doubleJump = true;
+                vo.doubleJump = true;
                 return true;
             }
         }
@@ -27,6 +27,14 @@ public class JumpUpState : RoleState {
     override public void StartState(Dictionary<string, StateParam> param)
     {
         this.param = param;
+        //角色正在开枪，并且方向跟现在的方向不一直则不允许换方向
+        if (param != null && param.ContainsKey(DirectionParam.NAME))
+        {
+            if (vo.gun.fireFlag && (param[DirectionParam.NAME] as DirectionParam).direction != vo.direction)
+            {
+                param.Remove(DirectionParam.NAME);
+            }
+        }
         Play();
         VelocityParam vp = GetParam(VelocityParam.NAME) as VelocityParam;
         r2d.velocity = new Vector2(r2d.velocity.x + vp.x, vp.y);

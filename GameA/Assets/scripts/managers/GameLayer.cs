@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameLayer : MonoBehaviour {
 
@@ -12,7 +10,7 @@ public class GameLayer : MonoBehaviour {
 
     private void Awake()
     {
-        Vector3 cameraSize = LayerManager.Instance.cameraSize;
+        Vector3 cameraSize = GameVO.Instance.camera.cameraSize;
         //计算镜头实际可移动范围
         cameraRange.x = moveRange.x + Mathf.Abs(cameraSize.x);
         cameraRange.width = moveRange.width - 2 * Mathf.Abs(cameraSize.x);
@@ -27,11 +25,13 @@ public class GameLayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Rect cameraRange = CameraManager.Instance.cameraRange;
-        if(cameraRange.Equals(this.cameraRange) == false)
+        Rect cameraRange = GameVO.Instance.camera.cameraRange;
+        Transform cameraTransform = GameVO.Instance.camera.cameraTransform;
+        if (cameraRange.Equals(this.cameraRange) == false)
         {
-            float xPercent = CameraManager.Instance.cameraXPercent;
-            float yPercent = CameraManager.Instance.cameraYPercent;
+            //计算镜头移动比例
+            float xPercent = (cameraTransform.position.x - cameraRange.x) / cameraRange.width;
+            float yPercent = (cameraTransform.position.y - cameraRange.y) / cameraRange.height;
             float x = this.cameraRange.x + this.cameraRange.width * xPercent;
             float y = this.cameraRange.y + this.cameraRange.height * yPercent;
             float cameraX = cameraRange.x + cameraRange.width * xPercent;
