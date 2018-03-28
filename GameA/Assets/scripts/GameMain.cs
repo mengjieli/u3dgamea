@@ -29,7 +29,7 @@ public class GameMain : MonoBehaviour {
         player.GetComponent<Role>().Init();
 
         //加上镜头跟随
-        vo.camera.LookAt(player.transform, CameraLookAt.LOOK_AT_RANGE);
+        vo.camera.LookAt(player.transform, CameraLookAt.LOOK_AT_FRONT);
     }
 	
 	// Update is called once per frame

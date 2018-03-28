@@ -90,6 +90,21 @@ public abstract class RoleState : MonoBehaviour
         }
     }
 
+    protected bool IsHigherThan(GameObject obj1, GameObject obj2)
+    {
+        double y1 = obj1.transform.position.y;
+        double y2 = obj2.transform.position.y;
+        if (obj1.GetComponent<BoxCollider2D>() != null)
+        {
+            y1 = y1 - obj1.GetComponent<BoxCollider2D>().size.y * 0.5 + obj1.GetComponent<BoxCollider2D>().offset.y;
+        }
+        if (obj2.GetComponent<BoxCollider2D>() != null)
+        {
+            y2 = y2 + obj2.GetComponent<BoxCollider2D>().size.y * 0.5 + obj2.GetComponent<BoxCollider2D>().offset.y;
+        }
+        return y1 >= y2 ? true : false;
+    }
+
     abstract public bool Accept(Dictionary<string, StateParam> param);
 
     abstract public void StartState(Dictionary<string, StateParam> param);

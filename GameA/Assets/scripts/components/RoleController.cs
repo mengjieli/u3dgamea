@@ -6,6 +6,7 @@ public class RoleController : MonoBehaviour {
 
     Role role;
     float lastJump = 0;
+    float lastHorizontal;
 
     private void Awake()
     {
@@ -21,19 +22,20 @@ public class RoleController : MonoBehaviour {
     void Update()
     {
         Dictionary<string, StateParam> param = new Dictionary<string, StateParam>();
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Horizontal") <= lastHorizontal)
         {
             param.Add(DirectionParam.NAME, new DirectionParam(DirectionParam.LEFT));
             role.ChangeState(RoleState.RUN, param);
         }
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Horizontal") >= lastHorizontal)
         {
             param.Add(DirectionParam.NAME, new DirectionParam(DirectionParam.RIGHT));
             role.ChangeState(RoleState.RUN, param);
         }
+        lastHorizontal = Input.GetAxis("Horizontal");
         if (Input.GetAxis("Jump") != 0 && lastJump == 0)
         {
-            param.Add(VelocityParam.NAME, new VelocityParam(0, 2.5f));
+            param.Add(VelocityParam.NAME, new VelocityParam(0, 3.0f));
             role.ChangeState(RoleState.JUMP_UP, param);
         }
         lastJump = Input.GetAxis("Jump");

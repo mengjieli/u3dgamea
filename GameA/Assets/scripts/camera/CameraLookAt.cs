@@ -7,12 +7,14 @@ public abstract class CameraLookAt {
     public const string NONE = "None";
     public const string LOOK_AT_CENTER = "LookAtCenter";
     public const string LOOK_AT_RANGE = "LookAtRange";
+    public const string LOOK_AT_FRONT = "LookAtFront";
 
     public static bool Check(string lookAtType)
     {
         if (lookAtType == CameraLookAt.NONE) return true;
         if (lookAtType == CameraLookAt.LOOK_AT_CENTER) return true;
         if (lookAtType == CameraLookAt.LOOK_AT_RANGE) return true;
+        if (lookAtType == CameraLookAt.LOOK_AT_FRONT) return true;
         return false;
     }
 

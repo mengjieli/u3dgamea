@@ -62,7 +62,10 @@ public class JumpUpState : RoleState {
         }
         if (collision.gameObject.layer == 8)
         {
-            role.ChangeState(RoleState.STAND);
+            if(IsHigherThan(role.gameObject,collision.gameObject))
+            {
+                role.ChangeState(RoleState.STAND);
+            }
         }
     }
 

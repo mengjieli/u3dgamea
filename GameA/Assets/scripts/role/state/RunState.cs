@@ -39,7 +39,13 @@ public class RunState : RoleState
         Play();
         DirectionParam dir = GetParam(DirectionParam.NAME) as DirectionParam;
         string direction = dir != null ? dir.direction : vo.direction;
-        r2d.velocity = new Vector2(direction == DirectionParam.RIGHT ? 1f : -1f, r2d.velocity.y);
+        float speed = 2f;
+        //开枪时角色移动减慢
+        if(vo.gun != null && vo.gun.fireFlag)
+        {
+            speed = 1.5f;
+        }
+        r2d.velocity = new Vector2(direction == DirectionParam.RIGHT ? speed : -speed, r2d.velocity.y);
     }
 
 

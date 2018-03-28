@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class LookAtRange : CameraLookAt
 {
-    public float rangeLeft = 0.25f;
-    public float rangeRight = 0.25f;
-    public float rangeUp = 0.25f;
-    public float rangeDown = 0.25f;
+    public float rangeLeft = 0.1f;
+    public float rangeRight = 0.1f;
+    public float rangeUp = 0.05f;
+    public float rangeDown = 0.05f;
 
     override protected string GetName()
     {
@@ -28,25 +28,25 @@ public class LookAtRange : CameraLookAt
         //如果角色不超过某个区域就不移动
 
         //超出可移动范围左边
-        if (lookAtTransform.position.x < cameraTransform.position.x - vo.cameraSize.x * rangeLeft)
+        if (lookAtTransform.position.x < cameraTransform.position.x - vo.cameraSize.x * (0.5f - rangeLeft))
         {
             moveFlag = true;
             x = lookAtTransform.position.x + vo.cameraSize.x * (0.5f - rangeLeft);
         }
         //超出可移动范围右边
-        if (lookAtTransform.position.x > cameraTransform.position.x + vo.cameraSize.x * rangeRight)
+        if (lookAtTransform.position.x > cameraTransform.position.x + vo.cameraSize.x * (0.5f - rangeRight))
         {
             moveFlag = true;
             x = lookAtTransform.position.x - vo.cameraSize.x * (0.5f - rangeRight);
         }
         //超出可移动范围下边
-        if (lookAtTransform.position.y < cameraTransform.position.y - vo.cameraSize.y * rangeDown)
+        if (lookAtTransform.position.y < cameraTransform.position.y - vo.cameraSize.y * (0.5f - rangeDown))
         {
             moveFlag = true;
             y = lookAtTransform.position.y + vo.cameraSize.y * (0.5f - rangeDown);
         }
         //超出可移动范围上边
-        if (lookAtTransform.position.y > cameraTransform.position.y + vo.cameraSize.y * rangeUp)
+        if (lookAtTransform.position.y > cameraTransform.position.y + vo.cameraSize.y * (0.5f - rangeUp))
         {
             moveFlag = true;
             y = lookAtTransform.position.y - vo.cameraSize.y * (0.5f - rangeUp);
