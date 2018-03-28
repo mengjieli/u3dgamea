@@ -14,13 +14,21 @@ public class LookAtFront : CameraLookAt
         return CameraLookAt.LOOK_AT_FRONT;
     }
 
+
+    CameraVO vo;
+    Transform cameraTransform;
+    Transform lookAtTransform;
+
+    public LookAtFront()
+    {
+        vo = GameVO.Instance.camera;
+        cameraTransform = vo.cameraTransform;
+        lookAtTransform = vo.lookAtTransform;
+    }
+
     // Update is called once per frame
     override public void Update()
     {
-        CameraVO vo = GameVO.Instance.camera;
-        Transform cameraTransform = vo.cameraTransform;
-        Transform lookAtTransform = vo.lookAtTransform;
-
         //是否需要移动的标志位
         float x = cameraTransform.position.x;
         float y = lookAtTransform.position.y;

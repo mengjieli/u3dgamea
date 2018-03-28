@@ -24,12 +24,7 @@ public class RunState : RoleState
         if (role.state.StateName == RoleState.STAND) return true;
         if (role.state.StateName == RoleState.RUN) return true;
         if (role.state.StateName == RoleState.JUMP_UP) return false;
-        if (role.state.StateName == RoleState.JUMP_DOWN) {
-            if(r2d.velocity.y == 0)
-            {
-                return true;
-            }
-        }
+        if (role.state.StateName == RoleState.JUMP_DOWN) return false;
         return false;
     }
 

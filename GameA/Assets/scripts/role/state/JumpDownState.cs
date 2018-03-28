@@ -45,8 +45,10 @@ public class JumpDownState : RoleState {
         }
         if (collision.gameObject.layer == 8)
         {
+            //判断角色脚底是否高于地面上层，如果不加会出现卡在跳台边缘的问题
             if (IsHigherThan(role.gameObject, collision.gameObject))
             {
+                //Debug.Log("jump down :" + role.gameObject.transform.position.y + "," + collision.gameObject.transform.position.y);
                 role.ChangeState(RoleState.STAND);
             }
         }

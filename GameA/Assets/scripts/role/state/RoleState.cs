@@ -90,6 +90,7 @@ public abstract class RoleState : MonoBehaviour
         }
     }
 
+    //判断 obj1 的最低点是否高于（等于） obj2 的最高点
     protected bool IsHigherThan(GameObject obj1, GameObject obj2)
     {
         double y1 = obj1.transform.position.y;

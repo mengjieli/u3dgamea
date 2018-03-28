@@ -28,6 +28,7 @@ public class ConfigManager : MonoBehaviour {
         BulletConfig bullet = new BulletConfig();
         bullet.id = 1;
         bullet.prefabURL = "bullet/FireBullet";
+        bullet.hitPrefabURL = "bullet/HitAnimation";
         bullet.startV = 5f;
         bullet.rotationRange = 10;
         bullets.Add(bullet.id,bullet);
@@ -36,6 +37,7 @@ public class ConfigManager : MonoBehaviour {
         bullet = new BulletConfig();
         bullet.id = 2;
         bullet.prefabURL = "bullet/FireBullet";
+        bullet.hitPrefabURL = "bullet/HitAnimation";
         bullet.startV = 1f;
         bullet.rotationRange = 20;
         bullets.Add(bullet.id, bullet);

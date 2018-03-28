@@ -37,4 +37,13 @@ public class CameraVO
             this.lookAtChange = true;
         }
     }
+
+    //需要调用的屏幕震动数组
+    public ArrayList shakes = new ArrayList();
+
+    //镜头震动
+    public void Shake(float time,float xRange, float yRange,string tag = "",bool only = false)
+    {
+        shakes.Add(new CameraShake(time,xRange,yRange,tag,only));
+    }
 }

@@ -28,5 +28,8 @@ public class StartUP : MonoBehaviour {
         Rect frontCameraRange = LayerManager.Instance.frontLayer.GetComponent<GameLayer>().cameraRange;
         vo.camera.cameraRange = new Rect(frontCameraRange.x, frontCameraRange.y, frontCameraRange.width, frontCameraRange.height);
         vo.camera.cameraTransform = mainCamera.transform;
+        //记录场景大小
+        Rect moveRange = LayerManager.Instance.frontLayer.GetComponent<GameLayer>().moveRange;
+        vo.sceneSize = new Rect(moveRange.x, moveRange.y, moveRange.width, moveRange.height);
     }
 }

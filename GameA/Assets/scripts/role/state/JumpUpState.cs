@@ -62,8 +62,10 @@ public class JumpUpState : RoleState {
         }
         if (collision.gameObject.layer == 8)
         {
-            if(IsHigherThan(role.gameObject,collision.gameObject))
+            //判断角色脚底是否高于地面上层，如果不加会出现卡在跳台边缘的问题
+            if (IsHigherThan(role.gameObject,collision.gameObject))
             {
+                //Debug.Log("jump up :" + role.gameObject.transform.position.y + "," + collision.gameObject.transform.position.y);
                 role.ChangeState(RoleState.STAND);
             }
         }

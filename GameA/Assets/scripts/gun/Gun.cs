@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour {
                 //获取子弹信息
                 BulletConfig bulletConfig = ConfigManager.Instance.GetBullet(vo.config.bulletId);
                 GameObject bullet = Instantiate(ResourceManager.Instance.GetResource(bulletConfig.prefabURL), shootPointTransform.position, shootPointTransform.localRotation) as GameObject;
+                bullet.GetComponent<Bullet>().config = bulletConfig;
                 bullet.transform.parent = LayerManager.Instance.bulletLayer.transform;
                 bullet.transform.localPosition = new Vector3(bullet.transform.localPosition.x, bullet.transform.localPosition.y, 0);
                 float scale = shootPointTransform.lossyScale.x > 0 ? 1 : -1;

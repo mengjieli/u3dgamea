@@ -78,17 +78,19 @@ public class Role : MonoBehaviour {
     public void ChangeState(string value,Dictionary<string,StateParam> param = null)
     {
         foreach (RoleState s in states) {
+            //新的状态如果接受才能跳转
             if (s.StateName == value && s.Accept(param)) {
                 if (state != null)
                 {
-                    //Debug.Log("quit " + state.StateName);
+                    //if(value != state.StateName)
+                    //Debug.Log("quit " + state.StateName + "," + value + "," + gameObject.transform.position.y);
                     state.Active = false;
                     state.Quit();
                 }
                 state = s;
                 state.Active = true;
                 state.StartState(param);
-                //Debug.Log("enter " + state.StateName);
+                //Debug.Log("enter " + state.StateName + "," + gameObject.transform.position.y);
                 break;
             }
         }

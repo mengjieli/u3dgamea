@@ -36,5 +36,6 @@ public class GameMain : MonoBehaviour {
 	void Update () {
         //计算游戏时间
         GameVO.Instance.currentTime += Time.deltaTime * 1000;
+        GameVO.Instance.timeGap = Time.deltaTime * 1000;
     }
 }

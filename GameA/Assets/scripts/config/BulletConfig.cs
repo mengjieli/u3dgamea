@@ -6,6 +6,9 @@
     //子弹 prefab url
     public string prefabURL;
 
+    //击中物体后的爆炸效果 prefab url
+    public string hitPrefabURL;
+
     //子弹发射速度
     public float startV;
 
